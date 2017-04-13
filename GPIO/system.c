@@ -10,6 +10,9 @@
  * and one oscillator configuration of HS/2 w/PLL16x.  
  *  
  * Compiler: XC16
+ * Version: v0.2
+ * Insert preprocesor directives to evaluate the model processor.
+ * 
  * Version: v0.1
  * Initial release.
  *
@@ -19,6 +22,12 @@
 
 #include <xc.h>
 #include "system.h"
+
+#if !(defined(__dsPIC30F4013__)  || defined (__dsPIC30F3014__))
+   #warning "PIC selected not supported"  
+   #warning "Review PIC selected in Project Properties" 
+   #warning "Choose -->  dsPIC30F3014 or dsPIC30F4013" 
+#endif 
 
 // FOSC
 #pragma config FOSFPR = HS2_PLL16       // Oscillator (HS2 w/PLL 16x)
