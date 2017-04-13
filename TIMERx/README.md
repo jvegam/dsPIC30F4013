@@ -6,13 +6,14 @@ versión 0.1 20170413
 
 Program that define the development the functions relation to the Timers of dsPIC30F4013 and dsPIC30F3014.
 TIMERdemo configure the Timers modules as counter and generate a blink led by the PORTB[5..1]. 
+
 Timer 1 --> RB1 
 Timer 2 --> RB2 
 Timer 3 --> RB3 
 Timer 4 --> RB4 
 Timer 5 --> RB5
 
-The functions to configure the timers, it find inside of [timer.c] (https://github.com/jvegam/dsPIC30F4013/blob/master/TIMERx/timer.c"timer.c") and [timer.h](https://github.com/jvegam/dsPIC30F4013/blob/master/TIMERx/timer.h,"timer.h") files.
+The functions to configure the timers, it find inside of [timer.c](https://github.com/jvegam/dsPIC30F4013/blob/master/TIMERx/timer.c ,"timer.c") and [timer.h](https://github.com/jvegam/dsPIC30F4013/blob/master/TIMERx/timer.h ,"timer.h") files.
 
 **Author:**   
 (c) Juan S. Vega Martinez   
@@ -30,7 +31,7 @@ void TimerX_Init(uint16_t config, uint16_t period, uint8_t PriorityValue, uint8_
 ```
 where 'X' and 'x', represent the number of the Timer.
 
-**Read Timer function:**Return the currently value of TMRx
+**Read Timer function:** Return the currently value of TMRx
 ```c
 uint16 ReadTimerX(void);
 ```
@@ -40,7 +41,7 @@ uint16 ReadTimerX(void);
 void StopTimerX(void);
 ```
 
-**Start Timer function:**Start the counter of the TMRx. Set a value of '1' to the bit TON of TxCON register.
+**Start Timer function:** Start the counter of the TMRx. Set a value of '1' to the bit TON of TxCON register.
 ```c
 void StartTimerX(void);
 ```
