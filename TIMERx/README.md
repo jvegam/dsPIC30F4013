@@ -50,9 +50,3 @@ void StopTimerX(void);
 ```c
 void StartTimerX(void);
 ```
-
-
-
-```
-
-

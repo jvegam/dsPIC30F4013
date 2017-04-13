@@ -1,6 +1,6 @@
 /* 
  * File:   system.h
- * Author: Juan Vega Martinez
+ * Author: (c)Juan Vega Martinez
  * e-mail: juan.vega25@gmail.com
  * Twitter: @JuanVegaMart
  *
