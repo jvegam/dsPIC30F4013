@@ -17,6 +17,8 @@
  */
  
 #include <xc.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "system.h"
 #include <libpic30.h>
  
