@@ -14,7 +14,7 @@ INT1 --> RB1
 
 INT2 --> RB2 
  
-The functions to configure the timers, it find inside of [int_ext.c](https://github.com/jvegam/dsPIC30F4013/blob/master/INTx/int_ext.c "int_ext.c") and [int_ext.h](https://github.com/jvegam/dsPIC30F4013/blob/master/TIMERx/int_ext.h "int_ext.h") files.
+The functions to configure the timers, it find inside of [int_ext.c](https://github.com/jvegam/dsPIC30F4013/blob/master/INTx/int_ext.c "int_ext.c") and [int_ext.h](https://github.com/jvegam/dsPIC30F4013/blob/master/INTx/int_ext.h "int_ext.h") files.
 
 **Author:**   
 (c) Juan S. Vega Martinez   
@@ -23,7 +23,7 @@ email: juan.vega25@gmail.com
 **Notes**   
 v0.1 MPLABX 3.4 - XC16 V1.26  
 
-**Abstract of functions avaliable in the timer library** 
+**Abstract of functions avaliable in the int_ext library** 
 
 **Initialize function:**  
  Structure Function pointer, that use the Function void IntExt#_Init(INTconfig_t *x); 
@@ -34,14 +34,14 @@ IntExt#.Init(INTconfig_t *x);
 ```
 The struct INTconfig_t, contains informations of configuration and status.
 of the external interrupt.
-   ejm:
+
+Example:
     
-        **Edge.**      Set the type of EDGE, It may be FALLING_EDGE(1) 
-                      o RISING_EDGE(0), in the bits INT#EP of INTCON2 register 
-        **Priority.**  Set the interrupt priority (0-7) in the registers IPCx 
+        **Edge.**       Set the type of EDGE, It may be FALLING_EDGE(1) o RISING_EDGE(0), in the bits INT#EP of INTCON2 register 
+        **Priority.**   Set the interrupt priority (0-7) in the registers IPCx 
         **EnableINT.**  Enable the ISR for External Interrupt. 
-                        0 -> Disable
-                        1 -> Enable  
+                                        0 -> Disable
+                                        1 -> Enable  
           
 ```c
 typedef struct intcfgVar_t{
@@ -52,14 +52,14 @@ typedef struct intcfgVar_t{
 }INTconfig_t;
 
 typedef struct intcfgFcn_t{
-  INTconfig_t config;  // 
+  INTconfig_t config;  
   void (*Set_Edge)(INTconfig_t *x);  
   void (*Init)(INTconfig_t *x);
   void (*Set_FlagINT)(uint16_t *y);
 }INTx_t;
 
 ```
-Initialmente , Three variables are created  and setting to default values.
+Initialmente , Three variables are created  and fixed to default values.
 
 ```c
 static INTx_t IntExt0 ={{0,0,0,0},&Set_IntExt0Edge,&IntExt0_Init,&Set_IntExt0FlagINT}; 
@@ -98,7 +98,7 @@ to set Value to EDGE to INTCON2bits.INT0EP .You can use also the macro:
 IntExt#Edge(a), where the value (a), can take two values (0 or 1)
  
  ```c
- IntExt#.Set_Edge(INTconfig_t *x);**
+ IntExt#.Set_Edge(INTconfig_t *x);
  ```
  
  Example:
