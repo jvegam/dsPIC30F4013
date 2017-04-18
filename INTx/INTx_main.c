@@ -62,12 +62,12 @@ void __attribute__((interrupt,auto_psv)) _INT0Interrupt(void){
 
 void __attribute__((interrupt,auto_psv)) _INT1Interrupt(void){
     LATBbits.LATB1=~LATBbits.LATB1;
-    IntExt1Set_FlagINT(0);;
+    IntExt1Set_FlagINT(0);
 }
 
 void __attribute__((interrupt,auto_psv)) _INT2Interrupt(void){
     LATBbits.LATB2=~LATBbits.LATB2;
-    IntExt2Set_FlagINT(0);;
+    IntExt2Set_FlagINT(0);
 }
 
 

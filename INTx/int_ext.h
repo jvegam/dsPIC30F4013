@@ -10,12 +10,10 @@
  * 
  * There are 3 functions relations  with the external interrupts.
  * 
- *  - IntExt#.Init(IntExt#_SELF); 
+ *  - IntExt#.Init(INTconfig_t *x); 
  *    Structure Function pointer, that use the Function void IntExt#_Init(INTconfig_t *x); 
  *    to configurate the External Interrupt # .
  * 
- *      *IntExt#_SELF, is the equivalent to "&IntExt0.config" in the struct: INTx_t .
- *  
  *      *The struct INTconfig_t, contains informations of configuration and status.
  *       of the external interrupt.
  *       ejm:
@@ -26,7 +24,19 @@
  *        **EnableINT. Enable the ISR for External Interrupt. 
  *                       0 -> Disable
  *                       1 -> Enable  
- *                           
+ *      Note:
+ *      IntExt#_SELF, is the equivalent to "&IntExt#.config" that is an INTconfig_t type
+ *      in the struct: INTx_t     
+ * 
+ * Example of use of the functions of configuration
+ *      
+ *   IntExt#.config.Edge = 1;      // FALLING_EDGE
+ *   IntExt#.config.Priority = 7;  // Priority 7
+ *   IntExt#.config.EnableINT= 1;  // Enable Interrupt
+ *   IntExt#.Init(IntExt#_SELF);   // Call inititialize function to the INT#
+ *  
+ * Where '#' is the number of the external interrupt,They may be 0,1,2.      
+ *                      
  *  - IntExt#.Set_Edge(IntExt#_SELF);
  *    Structure Function pointer, that use the Function to Set_IntExt#Edge(uint16_t *y);
  *    to set Value to EDGE to INTCON2bits.INT0EP .You can use also the macro:
