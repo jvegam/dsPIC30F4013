@@ -6,8 +6,10 @@ version 0.1 20180325
 
 Program that configure the ADC module in mode:
 
-Start Sampling   -> by instruccion (setting to high the bit SAMP value) 
-Start Convertion -> by instruccion (clearing the bit SAMP value).
+Start Sampling   -> by instruccion (setting to high the bit SAMP value)
+ 
+Start Convertion -> by instruccion (clearing the bit SAMP value)
+
 Channel          -> AN7
 
 **Author:**   
